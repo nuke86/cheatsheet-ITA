@@ -1,0 +1,181 @@
+ ██████╗██╗  ██╗███████╗ █████╗ ████████╗    ███████╗██╗  ██╗███████╗███████╗████████╗    ██╗████████╗ █████╗ 
+██╔════╝██║  ██║██╔════╝██╔══██╗╚══██╔══╝    ██╔════╝██║  ██║██╔════╝██╔════╝╚══██╔══╝    ██║╚══██╔══╝██╔══██╗
+██║     ███████║█████╗  ███████║   ██║       ███████╗███████║█████╗  █████╗     ██║       ██║   ██║   ███████║
+██║     ██╔══██║██╔══╝  ██╔══██║   ██║       ╚════██║██╔══██║██╔══╝  ██╔══╝     ██║       ██║   ██║   ██╔══██║  
+╚██████╗██║  ██║███████╗██║  ██║   ██║       ███████║██║  ██║███████╗███████╗   ██║       ██║   ██║   ██║  ██║
+ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝   ╚═╝       ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝   ╚═╝       ╚═╝   ╚═╝   ╚═╝  ╚═╝
+ @nuke86 - 10 settembre 2021                                                                                                             
+  __  __       ____   ___  _       _                             _                                  _ _          
+ |  \/  |_   _/ ___| / _ \| |     (_)_ __    _ __ ___   ___   __| | ___    ___  ___ _ __ ___  _ __ | (_) ___ ___ 
+ | |\/| | | | \___ \| | | | |     | | '_ \  | '_ ` _ \ / _ \ / _` |/ _ \  / __|/ _ \ '_ ` _ \| '_ \| | |/ __/ _ \
+ | |  | | |_| |___) | |_| | |___  | | | | | | | | | | | (_) | (_| | (_) | \__ \  __/ | | | | | |_) | | | (_|  __/ 
+ |_|  |_|\__, |____/ \__\_\_____| |_|_| |_| |_| |_| |_|\___/ \__,_|\___/  |___/\___|_| |_| |_| .__/|_|_|\___\___|
+         |___/                                                                               |_|                 
+
+
+ ___    _                            __  _     
+  |    /   _  ._ _   _. ._   _| o   (_  / \ |  
+ _|_   \_ (_) | | | (_| | | (_| |   __) \_X |_ 
+                                                         
+ I comandi in SQL sono chiamati Queries e sono di due tipi:
+  _
+ (_) queries per definizione dei dati: le istruzioni che definiscono la struttura di un database, creano tabelle, 
+     specificano le loro chiavi, indici e così via
+  _
+ (_) queries per elaborazione dei dati: queste sono le queries che possono essere modificate, 
+     es. operazioni di inserimento, interrogazione, modifica
+       
+           __                            
+ |   _.   (_   _  |  _  _  o  _  ._   _  
+ |_ (_|   __) (/_ | (/_ /_ | (_) | | (/_                                      
+                                                                                                                           
+ SELECT * FROM nuova_tabella
+    | Seleziona tutte le righe e colonne della tabella nuova_tabella |
+              
+ SELECT c1,c2 FROM nuova_tabella
+    | Seleziona le colonne c1 e c2 dalla tabella nuova_tabella |
+ 
+ SELECT c1,c2 FROM nuova_tabella WHERE condizioni ORDER BY c1 ASC, c2 DESC
+    | Seleziona le colonne c1 e c2 dalla tabella nuova_tabella, con le condizioni indicate, ordinando i risultati
+      in base alla colonna c1 in modo crescente e in base alla colonna c2 in modo decrescente |
+
+ SELECT DISTINCT c1, c2 FROM nuova_tabella
+    | Seleziona solo le righe distinte (diverse) delle colonne c1 e c2 nella tabella nuova_tabella 
+      (non vengono selezionati i duplicati) |
+     
+ SELECT c1, aggregate(expr) FROM nuova_tabella GROUP BY c1
+    | Seleziona la colonna c1, con la funzione contenuta in expr [es. COUNT(), MIN(), MAX()], ragruppata in 
+      base alla colonna c1 |
+     
+ SELECT c1, aggregate(expr) AS c2 FROM nuova_tabella GROUP BY c1 HAVING c2 > v
+    | Seleziona la colonna c1 e la colonna c2 come alias del risultato della funzione expr, 
+      raggruppa poi le righe con c2 > del valore v |
+
+                           _          
+ |   _.   |\/|  _   _| o _|_ o  _  _. 
+ |_ (_|   |  | (_) (_| |  |  | (_ (_|
+ 
+ INSERT INTO nuova_tabella (c1,c2...) VALUES (v1,v2...) 
+    | Inserisce i valori v1,v2 dentro le colonne c1,c2 della tabella nuova_tabella |
+    
+ INSERT INTO nuova_tabella (c1,c2...) SELECT c1,c2... FROM vecchia_tabella WHERE condizioni
+    | Inserisce i dati dalla tabella vecchia_tabella a nuova_tabella |
+    
+ UPDATE nuova_tabella SET c1 = v1, c2 = v2... WHERE condizioni
+    | Aggiorna i valori della tabella nuova_tabella |
+    
+ DELETE FROM nuova_tabella WHERE condizioni
+    | Elimina i dati dalla tabella secondo le condizioni |
+    
+          ___                    
+ |   _     |  _. |_   _  | |  _  
+ |_ (/_    | (_| |_) (/_ | | (/_
+                              
+ CREATE TABLE nuova_tabella(c1 tipo(dimens.) c2 tipo(dimens.) ... PRIMARY KEY (c1) ) 
+    | Crea nuova_tabella con chiave primaria c1 |
+    
+ DROP TABLE nuova_tabella
+    | Elimina nuova_tabella dal database |                     
+
+ TRUNCATE TABLE nuova_tabella
+    | Elimina la tabella e la ricrea nuova, tutti i dati vengono persi |
+    
+ ALTER TABLE nuova_tabella ADD COLUMN c1 tipo(dimens.)
+    | Aggiunge la colonna c1 alla tabella nuova_tabella |
+    
+ ALTER TABLE nuova_tabella DROP COLUMN c1
+    | Elimina la colonna c1 dalla tabella |
+                             
+                              
+ |   _    | | ._  o  _  ._  o 
+ |_ (/_   |_| | | | (_) | | |     
+ 
+ SELECT * FROM nuova_tabella INNER JOIN vecchia_tabella ON nuova_tabella.c1 = vecchia_tabella.c1
+    | Combina le righe delle due tabelle se le condizioni sono verificate |                     
+ 
+ SELECT * FROM nuova_tabella LEFT JOIN vecchia_tabella ON nuova_tabella.c1 = vecchia_tabella.c1
+ SELECT * FROM nuova_tabella RIGHT JOIN vecchia_tabella ON nuova_tabella.c1 = vecchia_tabella.c1                          
+
+                               _                          
+ | | _|_  _  ._ _|_ o    _    |_) _  ._ ._ _   _   _  _ o 
+ |_|  |_ (/_ | | |_ |   (/_   |  (/_ |  | | | (/_ _> _> |
+        
+ GRANT ALL PRIVILEGES ON base.* TO 'user'@'localhost' IDENTIFIED BY 'password';
+ GRANT SELECT, INSERT, DELETE ON base.* TO 'user'@'localhost' IDENTIFIED BY 'password';
+ REVOKE ALL PRIVILEGES ON base.* FROM 'user'@'host'; -- one permission only
+ REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'user'@'host'; -- all permissions
+ 
+ SET PASSWORD = PASSWORD('new_pass')
+ SET PASSWORD FOR 'user'@'host' = PASSWORD('new_pass')
+ SET PASSWORD = OLD_PASSWORD('new_pass')
+ 
+ DROP USER 'user'@'host'
+    
+    | L'host "%" indica tutti gli host |
+    
+ ___                   _              
+  | o ._  o    _| o   | \  _. _|_  _  
+  | | |_) |   (_| |   |_/ (_|  |_ (_) 
+      |
+
+ TINYINT (1o: -217+128) SMALLINT (2o: +-65 000)
+   MEDIUMINT (3o: +-16 000 000) INT (4o: +- 2 000 000 000)
+   BIGINT (8o: +-9.10^18)
+   | Intervallo preciso: -(2^(8*N-1)) -> (2^8*N)-1
+     INT(2) = "2 cifre visualizzate" -- NON "numero massimo di 2 cifre" |
+   
+ FLOAT(M,D) DOUBLE(M,D) FLOAT(D=0->53)
+   | 8,3 -> 12345,678 -- NON 12345678,123! |
+   
+ TIME (HH:MM) YEAR (AAAA) DATE (AAAA-MM-GG) DATETIME (AAAA-MM-GG HH:MM; anni 1000->9999)
+   TIMESTAMP | come DATETIME, ma 1970->2038, compatibile con Unix |
+   
+ VARCHAR (linea singola; dimensione specificata) TEXT (multilinea; dimens. max = 65535) BLOB (binario; 
+   dimens. max = 65535)
+   | Varianti per TEXT&BLOB: TINY (max=255) MEDIUM (max=~16000) LONG (max=4Go)
+     Es: VARCHAR(32), TINYTEXT, LONGBLOB, MEDIUMTEXT |
+ 
+ ENUM ('v1', 'v2', ...) -- (default NULL, or '' se NOT NULL)
+    
+ ___                                  
+  | ._     _  _ |_  o   | | _|_ o | o 
+  | | |_| (_ (_ | | |   |_|  |_ | | |
+  
+  
+ mysqldump -u Username -p DatabaseName > databasename_backup.sql
+    | Backup database in un file SQL |
+    
+ mysql - u Username -p DatabaseName < databasename_backup.sql
+    | Ripristino di un database da un file SQL |
+    
+    | Reset Root Password |
+ $ /etc/init.d/mysql stop
+ $ mysqld_safe --skip-grant-tables
+ $ mysql # su un altro terminale
+ mysql> UPDATE mysql.user SET password=PASSWORD('nuova_pass') WHERE user='root';
+ ## Torna al terminale mysqld_safe e chiudi il processo usando Control + 
+ $ /etc/init.d/mysql start
+ 
+    | Ripara le tabelle dopo uno spegnimento improvviso |
+ mysqlcheck --all-databases
+ mysqlcheck --all-databases --fast
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
