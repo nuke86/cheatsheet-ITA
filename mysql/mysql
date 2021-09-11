@@ -4,7 +4,7 @@
 ██║     ██╔══██║██╔══╝  ██╔══██║   ██║       ╚════██║██╔══██║██╔══╝  ██╔══╝     ██║       ██║   ██║   ██╔══██║  
 ╚██████╗██║  ██║███████╗██║  ██║   ██║       ███████║██║  ██║███████╗███████╗   ██║       ██║   ██║   ██║  ██║
  ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝   ╚═╝       ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝   ╚═╝       ╚═╝   ╚═╝   ╚═╝  ╚═╝
- @nuke86 - 10 settembre 2021                                                                                                             
+ @nuke86 - 10 settembre 2021                                                                                    
   __  __       ____   ___  _       _                             _                                  _ _          
  |  \/  |_   _/ ___| / _ \| |     (_)_ __    _ __ ___   ___   __| | ___    ___  ___ _ __ ___  _ __ | (_) ___ ___ 
  | |\/| | | | \___ \| | | | |     | | '_ \  | '_ ` _ \ / _ \ / _` |/ _ \  / __|/ _ \ '_ ` _ \| '_ \| | |/ __/ _ \
@@ -28,7 +28,7 @@
            __                            
  |   _.   (_   _  |  _  _  o  _  ._   _  
  |_ (_|   __) (/_ | (/_ /_ | (_) | | (/_                                      
-                                                                                                                           
+                                                                                                                
  SELECT * FROM nuova_tabella
     | Seleziona tutte le righe e colonne della tabella nuova_tabella |
               
@@ -94,7 +94,7 @@
     | Combina le righe delle due tabelle se le condizioni sono verificate |                     
  
  SELECT * FROM nuova_tabella LEFT JOIN vecchia_tabella ON nuova_tabella.c1 = vecchia_tabella.c1
- SELECT * FROM nuova_tabella RIGHT JOIN vecchia_tabella ON nuova_tabella.c1 = vecchia_tabella.c1                          
+ SELECT * FROM nuova_tabella RIGHT JOIN vecchia_tabella ON nuova_tabella.c1 = vecchia_tabella.c1
 
                                _                          
  | | _|_  _  ._ _|_ o    _    |_) _  ._ ._ _   _   _  _ o 
@@ -159,23 +159,4 @@
     | Ripara le tabelle dopo uno spegnimento improvviso |
  mysqlcheck --all-databases
  mysqlcheck --all-databases --fast
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
