@@ -17,13 +17,13 @@
   |    /   _  ._ _   _. ._   _| o   (_  / \ |  
  _|_   \_ (_) | | | (_| | | (_| |   __) \_X |_ 
                                                          
- I comandi in SQL sono chiamati Queries e sono di due tipi:
+ In SQL ci sono due tipi di Istruzioni:
   _
- (_) queries per definizione dei dati: le istruzioni che definiscono la struttura di un database, creano tabelle, 
+ (_) istruzioni di definizione dei dati: definiscono la struttura di un database, creano tabelle, 
      specificano le loro chiavi, indici e così via
   _
- (_) queries per elaborazione dei dati: queste sono le queries che possono essere modificate, 
-     es. operazioni di inserimento, interrogazione, modifica
+ (_) istruzioni di elaborazione dei dati: queste sono quelle che possono essere modificate, 
+     es. operazioni di inserimento, modifica o queries di interrogazione. 
        
            __                            
  |   _.   (_   _  |  _  _  o  _  ._   _  
